@@ -36,11 +36,11 @@ namespace RackManagement
 
             //TestCase 3 - true
             var bonusRack3 = new ScrabbleRack("a??????");
-            Console.WriteLine(bonusRack1.CanMakeWord("program"));
+            Console.WriteLine(bonusRack3.CanMakeWord("program"));
 
             //TestCase 4 - false
             var bonusRack4 = new ScrabbleRack("b??????");
-            Console.WriteLine(bonusRack1.CanMakeWord("program"));
+            Console.WriteLine(bonusRack4.CanMakeWord("program"));
 
             // Bonus 2
 
