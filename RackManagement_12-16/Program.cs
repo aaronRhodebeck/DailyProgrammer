@@ -31,7 +31,7 @@ namespace RackManagement
             Console.WriteLine(bonusRack1.CanMakeWord("pizzazz"));
 
             //TestCase 2 -> false
-            var bonusRack2 = new ScrabbleRack("piizza?");
+            var bonusRack2 = new ScrabbleRack("pizza??");
             Console.WriteLine(bonusRack2.CanMakeWord("pizzazz"));
 
             //TestCase 3 - true
