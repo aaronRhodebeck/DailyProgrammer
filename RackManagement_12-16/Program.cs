@@ -6,6 +6,14 @@ namespace RackManagement
     {
         public static void Main(string[] args)
         {
+            TestsForRackManagement1();
+
+            TestsForDictionaryProcessingClass();
+            
+        }
+
+        public static void TestsForRackManagement1()
+        {
             // Main Excercise
             
             // TestCase 1 -> true
@@ -58,6 +66,26 @@ namespace RackManagement
 
             // TestCase 5 -> "ovolactovegetarian"
             var bonusRack9 = new ScrabbleRack("vaakojeaietg????????");
+        }
+
+        public static void TestsForDictionaryProcessingClass()
+        {
+            // Check Constructor
+            var list = new WordList();
+
+            // Check alphabetical constructor
+            list = new WordList("alphabetical");
+
+            // Check length sorted constructor
+            list = new WordList("length");
+            for (int i = 0; i < list.Length - 2; i++)
+            {
+                if (list.AllWords[i].Length < list.AllWords[i+1].Length)
+                {
+                    Console.WriteLine("failed");
+                    return;
+                }
+            }
         }
     }
 }

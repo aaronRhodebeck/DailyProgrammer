@@ -1,43 +1,52 @@
-public class ScrabbleRack
+namespace RackManagement
 {
-    private const string PossibleTiles = "abcdefghijklmnopqrstuvwxyz?";
-    public string Tiles { get; set; }
-    private int[] TileFrequency { get; set; }
     
-    public ScrabbleRack(string tiles)
+    public class ScrabbleRack
     {
-        this.Tiles = tiles.ToLower();
-        this.TileFrequency = SortTiles(tiles);
-    }
-
-    private int[] SortTiles(string tiles)
-    {
-        var tileFrequency = new int[PossibleTiles.Length];
-        foreach (var tile in tiles)
+        private const string PossibleTiles = "abcdefghijklmnopqrstuvwxyz?";
+        public string Tiles { get; set; }
+        private int[] TileFrequency { get; set; }
+        
+        public ScrabbleRack(string tiles)
         {
-            tileFrequency[PossibleTiles.IndexOf(tile)]++;
+            this.Tiles = tiles.ToLower();
+            this.TileFrequency = SortTiles(tiles);
         }
-        return tileFrequency;
-    }
 
-    public bool CanMakeWord(string word)
-    {
-        int wildcardsNeeded = 0;        
-        var tilesNeeded = SortTiles(word);
-
-        for (int i = 0; i < tilesNeeded.Length; i++)
+        private int[] SortTiles(string tiles)
         {
-            if (tilesNeeded[i] > TileFrequency[i])
+            var tileFrequency = new int[PossibleTiles.Length];
+            foreach (var tile in tiles)
             {
-                wildcardsNeeded += tilesNeeded[i] - TileFrequency[i];
+                tileFrequency[PossibleTiles.IndexOf(tile)]++;
+            }
+            return tileFrequency;
+        }
+
+        public bool CanMakeWord(string word)
+        {
+            int wildcardsNeeded = 0;        
+            var tilesNeeded = SortTiles(word);
+
+            for (int i = 0; i < tilesNeeded.Length; i++)
+            {
+                if (tilesNeeded[i] > TileFrequency[i])
+                {
+                    wildcardsNeeded += tilesNeeded[i] - TileFrequency[i];
+                }
+                
+                if (wildcardsNeeded > TileFrequency[TileFrequency.Length -1])
+                {
+                    return false;
+                }
             }
             
-            if (wildcardsNeeded > TileFrequency[TileFrequency.Length -1])
-            {
-                return false;
-            }
+            return true;
         }
-        
-        return true;
-    }
+
+/*        public string LongestWord(string[] wordList)
+        {
+
+        }
+*/    }
 }
