@@ -6,7 +6,7 @@ namespace RackManagement
     class WordList
     {
         private const string WordListLocation 
-            = @"C:\Users\Aaron\Documents\Programming and Code\DailyProgrammer\enable1.txt";
+            = @"C:\Users\Aaron\Documents\Programming and Code\DailyProgrammer\RackManagement_12-16\enable1.txt";
         public string[] AllWords;
         public int Length;
         
