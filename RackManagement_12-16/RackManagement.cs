@@ -26,7 +26,7 @@ namespace RackManagement
         public bool CanMakeWord(string word)
         {
             int wildcardsNeeded = 0;        
-            var tilesNeeded = SortTiles(word);
+            var tilesNeeded = SortTiles(word.ToLower());
 
             for (int i = 0; i < tilesNeeded.Length; i++)
             {
@@ -44,9 +44,20 @@ namespace RackManagement
             return true;
         }
 
-/*        public string LongestWord(string[] wordList)
+        public string LongestWordAvailable(string[] wordList)
         {
+            int index = 0;
 
+            foreach (var word in wordList)
+            {
+                if(word.Length <= Tiles.Length && CanMakeWord(word))
+                {
+                    return wordList[index];
+                }
+                index++;
+            }
+
+            return "No word can be made";
         }
-*/    }
+    }
 }

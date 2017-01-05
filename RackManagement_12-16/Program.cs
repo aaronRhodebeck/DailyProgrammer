@@ -8,7 +8,9 @@ namespace RackManagement
         {
             TestsForRackManagement1();
 
-            TestsForDictionaryProcessingClass();
+            // UnitTestsForDictionaryProcessingClass();
+
+            
             
         }
 
@@ -51,24 +53,30 @@ namespace RackManagement
             Console.WriteLine(bonusRack4.CanMakeWord("program"));
 
             // Bonus 2
+            var sortedWordList = new WordList("length");
 
             //TestCase 1 -> "coauthored"
             var bonusRack5 = new ScrabbleRack("dcthoyueorza");
+            Console.WriteLine(bonusRack5.LongestWordAvailable(sortedWordList.AllWords));
 
             //TestCase 2 -> "turquois"
             var bonusRack6 = new ScrabbleRack("uruqrnytrois");
+            Console.WriteLine(bonusRack6.LongestWordAvailable(sortedWordList.AllWords));
 
             //TestCase 3 - "greengrocery"
             var bonusRack7 = new ScrabbleRack("rryqeiaegicgeo??");
+            Console.WriteLine(bonusRack7.LongestWordAvailable(sortedWordList.AllWords));
 
             //TestCase 4 - "subordinately"
             var bonusRack8 = new ScrabbleRack("udosjanyuiuebr??");
+            Console.WriteLine(bonusRack8.LongestWordAvailable(sortedWordList.AllWords));
 
             // TestCase 5 -> "ovolactovegetarian"
             var bonusRack9 = new ScrabbleRack("vaakojeaietg????????");
+            Console.WriteLine(bonusRack9.LongestWordAvailable(sortedWordList.AllWords));
         }
 
-        public static void TestsForDictionaryProcessingClass()
+        public static void UnitTestsForDictionaryProcessingClass()
         {
             // Check Constructor
             var list = new WordList();
